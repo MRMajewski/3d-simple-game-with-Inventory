@@ -1,13 +1,28 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class InventoryUI : MonoBehaviour
 {
+    public static InventoryUI Instance { get; private set; } 
+
     [SerializeField] private Transform itemsParent;
     [SerializeField] private GameObject itemUIPrefab;
+    [SerializeField] private List<EquipmentSlotUI> equipmentSlots;
 
-    private List<ItemUI> itemUIList = new List<ItemUI>();
+    private List<ItemSlotUI> itemUIList = new List<ItemSlotUI>();
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("Multiple instances of InventoryUI detected! Destroying duplicate.");
+            Destroy(gameObject);
+        }
+    }
 
     public void SetupInventoryUI(List<ItemData> items)
     {
@@ -17,23 +32,24 @@ public class InventoryUI : MonoBehaviour
         {
             AddItem(item);
         }
-
-        void AddItem(ItemData itemData)
-        {
-            GameObject newItem = Instantiate(itemUIPrefab, itemsParent);
-            ItemUI itemUI = newItem.GetComponent<ItemUI>();
-            itemUI.Setup(itemData);
-            itemUIList.Add(itemUI);
-        }
-
-        void ClearInventoryUI()
-        {
-            foreach (var itemUI in itemUIList)
-            {
-                Destroy(itemUI.gameObject);
-            }
-            itemUIList.Clear();
-        }
-
     }
+
+    private void AddItem(ItemData itemData)
+    {
+        GameObject newItem = Instantiate(itemUIPrefab, itemsParent);
+        ItemSlotUI itemUI = newItem.GetComponent<ItemSlotUI>();
+        itemUI.Setup(itemData);
+        itemUIList.Add(itemUI);
+    }
+
+    private void ClearInventoryUI()
+    {
+        foreach (var itemUI in itemUIList)
+        {
+            Destroy(itemUI.gameObject);
+        }
+        itemUIList.Clear();
+    }
+
+    public List<EquipmentSlotUI> GetEquipmentSlots() => equipmentSlots; // 🔹 Publiczna metoda do pobrania slotów
 }

@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
         foreach (var item in itemsArray)
         {
             ItemData newItem = item.ToObject<ItemData>();
-            items.Add(newItem);      
+            items.Add(newItem);
         }
         inventoryUIManager.SetupInventoryUI(items);
     }

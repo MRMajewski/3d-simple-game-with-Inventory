@@ -164,8 +164,8 @@ GameObject:
   - component: {fileID: 1550405742076587392}
   - component: {fileID: 1550405742076587393}
   - component: {fileID: 1550405742076587394}
-  - component: {fileID: 885677416402691748}
   - component: {fileID: 9131062359908643616}
+  - component: {fileID: 3543124764410301814}
   m_Layer: 5
   m_Name: ItemSlotUI
   m_TagString: Untagged
@@ -278,43 +278,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &885677416402691748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550405742076587396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d8177f3c6974ea41a6c5043b4a9792e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIcon: {fileID: 1550405741519186119}
-  background: {fileID: 1550405742076587393}
-  itemNameText: {fileID: 6108047178568687536}
-  tooltipTrigger: {fileID: 9131062359908643616}
-  categoryIcons:
-  - categoryName: Armor
-    icon: {fileID: 21300000, guid: 38f25bebfff2fe445a256686f3754117, type: 3}
-  - categoryName: Boots
-    icon: {fileID: 21300000, guid: f097976df7da1724b89b52dcce80bf8b, type: 3}
-  - categoryName: Helmet
-    icon: {fileID: 21300000, guid: ff15f622b6edfe64f96c6921e9c9597f, type: 3}
-  - categoryName: Necklace
-    icon: {fileID: 21300000, guid: 7d562b788a498ee46a6d55a822201d49, type: 3}
-  - categoryName: Ring
-    icon: {fileID: 21300000, guid: ca7920510d7de3548b1426050fab6c23, type: 3}
-  - categoryName: Weapon
-    icon: {fileID: 21300000, guid: ca0219c439097cc47a1e9625950d82c6, type: 3}
-  - categoryName: Default
-    icon: {fileID: 21300000, guid: f9619563aba8b7542abf0aabdc638afe, type: 3}
-  rarityColors:
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &9131062359908643616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +291,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipText: Tes test test
+--- !u!114 &3543124764410301814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550405742076587396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a184c443606a3ca48b4c3e0f2f93e393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 1550405741519186119}
+  background: {fileID: 1550405742076587393}
+  itemButton: {fileID: 1550405742076587394}
+  tooltipTrigger: {fileID: 9131062359908643616}
+  categoryIcons:
+  - categoryName: Armor
+    icon: {fileID: 21300000, guid: 38f25bebfff2fe445a256686f3754117, type: 3}
+  - categoryName: Boots
+    icon: {fileID: 21300000, guid: 0504150d58d78584ca21992b9dfb299e, type: 3}
+  - categoryName: Helmet
+    icon: {fileID: 21300000, guid: ff15f622b6edfe64f96c6921e9c9597f, type: 3}
+  - categoryName: Necklace
+    icon: {fileID: 21300000, guid: f3bdd9b0c9f99c148b0e899114925589, type: 3}
+  - categoryName: Ring
+    icon: {fileID: 21300000, guid: 5e43fdcc39518d549a5c4914e42a81bc, type: 3}
+  - categoryName: Weapon
+    icon: {fileID: 21300000, guid: 175f58e559c041f4591b61a8d8172b34, type: 3}
+  rarityColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.16827083, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.00794278, b: 0.9339623, a: 1}
+  - {r: 1, g: 0, b: 0.98310184, a: 1}
+  - {r: 1, g: 0.9676375, b: 0, a: 1}
 --- !u!1 &7990781301230101345
 GameObject:
   m_ObjectHideFlags: 0
