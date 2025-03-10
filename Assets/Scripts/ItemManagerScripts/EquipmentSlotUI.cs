@@ -34,6 +34,7 @@ public class EquipmentSlotUI : ItemBaseSlotUI
 
         AnimateEquipItem();
 
+        CharacterPreview.Instance.UpdateCharacterLook(Category, ItemData.Rarity);
         EquipmentStatsManager.Instance.UpdateStats();
     }
 
@@ -46,15 +47,16 @@ public class EquipmentSlotUI : ItemBaseSlotUI
         itemIcon.sprite = emptySprite;
         SetRarityColor(0);
 
+        CharacterPreview.Instance.UpdateCharacterLook(Category);
         EquipmentStatsManager.Instance.UpdateStats();
     }
 
     private void AnimateEquipItem()
     {
-        this.transform.DOScale(scaleMultiplier, animationDuration)
+        this.transform.DOScale(scaleMultiplier, animationDuration).SetUpdate(true)
             .OnComplete(() =>
             {
-                this.transform.DOScale(1f, animationDuration).SetEase(Ease.InBack);
+                this.transform.DOScale(1f, animationDuration).SetEase(Ease.InBack).SetUpdate(true);
             });
     }
 }

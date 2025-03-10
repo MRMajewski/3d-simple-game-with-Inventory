@@ -14,7 +14,6 @@ public class EquipmentStatsManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI statsTextMovementSpeed;
     [SerializeField] private TextMeshProUGUI statsTextLuck;
 
-    // Statystyki sumowane
     private int totalDamage;
     private int totalHealthPoints;
     private int totalDefense;
@@ -41,7 +40,7 @@ public class EquipmentStatsManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Multiple instances of EquipmentStatsManager detected! Destroying duplicate.");
+    
             Destroy(gameObject);
         }
     }

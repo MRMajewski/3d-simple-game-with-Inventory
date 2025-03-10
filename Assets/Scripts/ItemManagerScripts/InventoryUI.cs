@@ -9,7 +9,11 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject itemUIPrefab;
     [SerializeField] private List<EquipmentSlotUI> equipmentSlots;
 
+    [SerializeField] private Camera previewCamera;
+
     private List<ItemSlotUI> itemUIList = new List<ItemSlotUI>();
+
+    [SerializeField] private GameObject inventoryPanel; // Panel ekwipunku
 
     private void Awake()
     {
@@ -22,6 +26,14 @@ public class InventoryUI : MonoBehaviour
             Debug.LogWarning("Multiple instances of InventoryUI detected! Destroying duplicate.");
             Destroy(gameObject);
         }
+    }
+
+    [ContextMenu("ToggleInventory")]
+    public void ToggleInventory()
+    {
+        bool isActive = !inventoryPanel.activeSelf;
+        inventoryPanel.SetActive(isActive);
+        previewCamera.gameObject.SetActive(isActive);
     }
 
     public void SetupInventoryUI(List<ItemData> items)
@@ -51,5 +63,5 @@ public class InventoryUI : MonoBehaviour
         itemUIList.Clear();
     }
 
-    public List<EquipmentSlotUI> GetEquipmentSlots() => equipmentSlots; // 🔹 Publiczna metoda do pobrania slotów
+    public List<EquipmentSlotUI> GetEquipmentSlots() => equipmentSlots; 
 }
