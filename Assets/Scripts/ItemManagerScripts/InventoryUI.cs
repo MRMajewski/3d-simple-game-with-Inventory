@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
-    public static InventoryUI Instance { get; private set; } 
+    public static InventoryUI Instance { get; private set; }
 
     [SerializeField] private Transform itemsParent;
     [SerializeField] private GameObject itemUIPrefab;
@@ -13,7 +14,11 @@ public class InventoryUI : MonoBehaviour
 
     private List<ItemSlotUI> itemUIList = new List<ItemSlotUI>();
 
-    [SerializeField] private GameObject inventoryPanel; // Panel ekwipunku
+    [SerializeField] private GameObject inventoryPanel; 
+
+    [SerializeField] private CanvasGroup onLoadTextCanvasGroup;
+
+    private Sequence loadingSequence; 
 
     private void Awake()
     {
@@ -28,6 +33,11 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        StartLoadingAnimation();
+    }
+
     [ContextMenu("ToggleInventory")]
     public void ToggleInventory()
     {
@@ -38,6 +48,8 @@ public class InventoryUI : MonoBehaviour
 
     public void SetupInventoryUI(List<ItemData> items)
     {
+        StopLoadingAnimation();
+        onLoadTextCanvasGroup.gameObject.SetActive(false);
         ClearInventoryUI();
 
         foreach (ItemData item in items)
@@ -63,5 +75,29 @@ public class InventoryUI : MonoBehaviour
         itemUIList.Clear();
     }
 
-    public List<EquipmentSlotUI> GetEquipmentSlots() => equipmentSlots; 
+    private void StartLoadingAnimation()
+    {
+        if (loadingSequence != null && loadingSequence.IsActive())
+        {
+            loadingSequence.Kill(); 
+        }
+
+        loadingSequence = DOTween.Sequence()
+            .Append(onLoadTextCanvasGroup.DOFade(0.3f, 0.8f))
+            .Append(onLoadTextCanvasGroup.DOFade(1f, 0.8f))
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutSine)
+            .SetUpdate(true);
+    }
+
+    private void StopLoadingAnimation()
+    {
+        if (loadingSequence != null && loadingSequence.IsActive())
+        {
+            loadingSequence.Kill(); 
+            loadingSequence = null;
+        }
+    }
+
+    public List<EquipmentSlotUI> GetEquipmentSlots() => equipmentSlots;
 }

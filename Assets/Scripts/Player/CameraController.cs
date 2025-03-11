@@ -33,7 +33,6 @@ public class CameraController : MonoBehaviour
             currentRotationX -= mouseY * rotationSpeed;
             currentRotationX = Mathf.Clamp(currentRotationX, 15f, 80f); 
         }
-
         Quaternion rotation = Quaternion.Euler(currentRotationX, currentRotationY, 0);
         Vector3 position = target.position - (rotation * Vector3.forward * distance);
 

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController Instance;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private Button playButton;
@@ -15,6 +16,17 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private PlayerController playerController;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         playButton.onClick.AddListener(OnPlayButtonClicked);
@@ -70,17 +82,15 @@ public class GameController : MonoBehaviour
     {
         isGamePaused = true;
         Time.timeScale = 0f;
-        inventoryPanel.SetActive(true);
+        inventoryPanel.SetActive(true);      
     }
 
     private void ResumeGame()
     {
         isGamePaused = false;
         Time.timeScale = 1f;
-        inventoryPanel.SetActive(false);
-
-        playerController.UpdatePlayerStats();
-     //   playerController.UpdateMovementSpeed();
-
+        inventoryPanel.SetActive(false);      
+        playerController.UpdatePlayerStats(); 
+        playerController.StopPlayerMovementAnim();
     }
 }

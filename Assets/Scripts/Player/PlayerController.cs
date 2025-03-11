@@ -7,22 +7,8 @@ public class PlayerController : MonoBehaviour
     private NavMeshAgent agent;
     [SerializeField]
     private PlayerStatsManager statsManager;
-
-    public void UpdateMovementSpeed()
-    {
-        if (agent != null)
-        {     
-            if (statsManager.TotalMovementSpeed / 3f < 2 )
-            {
-                agent.speed = 2f;
-            }
-            else
-            {
-                agent.speed = statsManager.TotalMovementSpeed / 3f;
-            }
-             agent.acceleration = agent.speed * 2f;
-        }
-    }
+    [SerializeField]
+    private PlayerMovement playerMovement;
 
     public void UpdatePlayerStats()
     {
@@ -32,6 +18,11 @@ public class PlayerController : MonoBehaviour
 
     public void UpdatePlayerSkills()
     {
-        UpdateMovementSpeed();
+        playerMovement.UpdateMovementSpeed(statsManager.TotalMovementSpeed / 3f);
+    }
+
+    public void StopPlayerMovementAnim()
+    {
+        playerMovement.StopPlayerMovement();
     }
 }

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System;
 
 [Serializable]
-
 public class ItemData
     {
         public string Name;

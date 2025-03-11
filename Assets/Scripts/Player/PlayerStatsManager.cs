@@ -34,7 +34,6 @@ public class PlayerStatsManager : MonoBehaviour
         totalLuck = 1;
     }
 
-
     public void UpdatePlayerStats()
     {
         totalDamage = EquipmentStatsManager.Instance.TotalDamage;

@@ -1586,7 +1586,7 @@ Animator:
   m_GameObject: {fileID: 8767499617469252127}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 335f64e53b1ba9648aec09bc1a394a09, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 359943e14e258dc428e256faf72da123, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1609,14 +1609,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b869b8b6710dc2f44a4da57ae7dcf22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 5
-  chaseRange: 7
+  wanderRadius: 8
+  chaseRange: 10
   attackRange: 1.5
   normalSpeed: 3.5
-  chaseSpeed: 5.5
+  chaseSpeed: 5
   damage: 10
-  player: {fileID: 0}
+  target: {fileID: 0}
   agent: {fileID: 6198500742697191702}
+  allEnemyAnimators:
+  - {fileID: 1733505604033496081}
+  - {fileID: 4802022209710522959}
+  - {fileID: 3031019856777435685}
+  - {fileID: 2596208685070762719}
+  enemyAnimator: {fileID: 2596208685070762719}
 --- !u!195 &6198500742697191702
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1738,11 +1744,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Costume_13_002
       objectReference: {fileID: 0}
+    - target: {fileID: 7453304507355956669, guid: 48013649fde2719469b91a7b7816e693,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 359943e14e258dc428e256faf72da123, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48013649fde2719469b91a7b7816e693, type: 3}
 --- !u!4 &1460319758907398197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3571169929605996487, guid: 48013649fde2719469b91a7b7816e693,
+    type: 3}
+  m_PrefabInstance: {fileID: 2723342091916675058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4802022209710522959 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7453304507355956669, guid: 48013649fde2719469b91a7b7816e693,
     type: 3}
   m_PrefabInstance: {fileID: 2723342091916675058}
   m_PrefabAsset: {fileID: 0}
@@ -1813,8 +1830,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Costume_13_001
       objectReference: {fileID: 0}
+    - target: {fileID: 6271278436262963799, guid: 14f61ecc52af1b342818547159d19ac2,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 359943e14e258dc428e256faf72da123, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14f61ecc52af1b342818547159d19ac2, type: 3}
+--- !u!95 &1733505604033496081 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6271278436262963799, guid: 14f61ecc52af1b342818547159d19ac2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5694424232483991110}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5687636199014735467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 137397542948745261, guid: 14f61ecc52af1b342818547159d19ac2,
@@ -1888,8 +1916,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clown_nose_001
       objectReference: {fileID: 0}
+    - target: {fileID: 8555125134434048019, guid: 1241abf6489b71440abee7d82a88aafa,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 359943e14e258dc428e256faf72da123, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1241abf6489b71440abee7d82a88aafa, type: 3}
+--- !u!95 &3031019856777435685 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8555125134434048019, guid: 1241abf6489b71440abee7d82a88aafa,
+    type: 3}
+  m_PrefabInstance: {fileID: 6677061967979135542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9002823562110828639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2331109988611179113, guid: 1241abf6489b71440abee7d82a88aafa,

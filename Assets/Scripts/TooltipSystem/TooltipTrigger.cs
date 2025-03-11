@@ -50,6 +50,5 @@ public class TooltipTrigger : MonoBehaviour, IPointerClickHandler, IPointerEnter
     private void HandleTooltipExit()
     {
         TooltipManager.Instance.HideTooltip();
-
     }
 }

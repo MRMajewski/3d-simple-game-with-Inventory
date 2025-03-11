@@ -77,10 +77,8 @@ public class EquipmentStatsManager : MonoBehaviour
                 totalLuck += itemData.Luck;
             }
         }
-
         DisplayStats();
     }
-
     private void DisplayStats()
     {
         statsTextDamage.text = $"Damage: {totalDamage}\n";

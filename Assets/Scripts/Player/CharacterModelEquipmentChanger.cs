@@ -14,7 +14,6 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
     public List<Animator> Boots;
     public List<Animator> Weapons;
 
-
     public void ChangeEquipment(string category, int index)
     {
         switch (category)
@@ -42,11 +41,10 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
                 break;
         }
 
-
         void ChangeHelmet(int index)
-            {
+        {
             int newIndex = index;
-            if (index!=-1)
+            if (index != -1)
             {
                 float newIndexFloat = index / 5f;
                 newIndex = Mathf.CeilToInt(Mathf.Clamp(newIndexFloat * (Helmets.Count - 1), 0, Helmets.Count - 1));
@@ -59,8 +57,6 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
                     Helmets[i].gameObject.SetActive(true);
                     SyncAnimation(Helmets[i]);
                 }
-                 
-
                 else
                     Helmets[i].gameObject.SetActive(false);
             }
@@ -72,7 +68,7 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
             int newIndex = index;
             if (index != -1)
             {
-                 newIndex = Mathf.CeilToInt(Mathf.Clamp((index / 5f) * (Necklaces.Count - 1), 0, Necklaces.Count - 1));
+                newIndex = Mathf.CeilToInt(Mathf.Clamp((index / 5f) * (Necklaces.Count - 1), 0, Necklaces.Count - 1));
             }
             for (int i = 0; i < Necklaces.Count; i++)
             {
@@ -81,7 +77,6 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
                     Necklaces[i].gameObject.SetActive(true);
                     SyncAnimation(Necklaces[i]);
                 }
-                  
                 else
                     Necklaces[i].gameObject.SetActive(false);
             }
@@ -92,12 +87,12 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
             int newIndex = index;
             if (index != -1)
             {
-                 newIndex = Mathf.CeilToInt(Mathf.Clamp((index / 5f) * (Armors.Count - 1), 0, Armors.Count - 1));
+                newIndex = Mathf.CeilToInt(Mathf.Clamp((index / 5f) * (Armors.Count - 1), 0, Armors.Count - 1));
             }
             for (int i = 0; i < Armors.Count; i++)
             {
                 if (i == newIndex)
-                {     
+                {
                     Armors[i].gameObject.SetActive(true);
                     SyncAnimation(Armors[i]);
                 }
@@ -111,7 +106,7 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
             int newIndex = index;
             if (index != -1)
             {
-                 newIndex = Mathf.CeilToInt(Mathf.Clamp((index / 5f) * (Rings.Count - 1), 0, Rings.Count - 1));
+                newIndex = Mathf.CeilToInt(Mathf.Clamp((index / 5f) * (Rings.Count - 1), 0, Rings.Count - 1));
             }
 
             for (int i = 0; i < Rings.Count; i++)
@@ -121,7 +116,6 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
                     Rings[i].gameObject.SetActive(true);
                     SyncAnimation(Rings[i]);
                 }
-                   
                 else
                     Rings[i].gameObject.SetActive(false);
             }
@@ -132,7 +126,7 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
             int newIndex = index;
             if (index != -1)
             {
-                 newIndex = Mathf.CeilToInt(Mathf.Clamp((index / 5f) * (Boots.Count - 1), 0, Boots.Count - 1));
+                newIndex = Mathf.CeilToInt(Mathf.Clamp((index / 5f) * (Boots.Count - 1), 0, Boots.Count - 1));
             }
 
             for (int i = 0; i < Boots.Count; i++)
@@ -142,7 +136,6 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
                     Boots[i].gameObject.SetActive(true);
                     SyncAnimation(Boots[i]);
                 }
-                   
                 else
                     Boots[i].gameObject.SetActive(false);
             }
@@ -153,30 +146,25 @@ public class CharacterModelEquipmentChanger : MonoBehaviour
             int newIndex = index;
             if (index != -1)
             {
-                 newIndex = Mathf.CeilToInt(Mathf.Clamp((index / 5f) * (Weapons.Count - 1), 0, Weapons.Count - 1));
+                newIndex = Mathf.CeilToInt(Mathf.Clamp((index / 5f) * (Weapons.Count - 1), 0, Weapons.Count - 1));
             }
             for (int i = 0; i < Weapons.Count; i++)
             {
                 if (i == newIndex)
                 {
                     Weapons[i].gameObject.SetActive(true);
-
                 }
-                   
                 else
                     Weapons[i].gameObject.SetActive(false);
             }
         }
 
-
         void SyncAnimation(Animator newAnimator)
         {
-
-            if (bodyAnimator == null || newAnimator == null) return; 
+            if (bodyAnimator == null || newAnimator == null) return;
 
             AnimatorStateInfo stateInfo = bodyAnimator.GetCurrentAnimatorStateInfo(0);
             newAnimator.Play(stateInfo.shortNameHash, 0, stateInfo.normalizedTime);
         }
-
     }
 }
