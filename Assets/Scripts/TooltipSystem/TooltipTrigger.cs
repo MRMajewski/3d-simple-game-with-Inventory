@@ -39,11 +39,8 @@ public class TooltipTrigger : MonoBehaviour, IPointerClickHandler, IPointerEnter
     private void HandleTooltipEnter()
     {
         TooltipManager.Instance.InspectedRectTransform = GetComponent<RectTransform>();
-
         TooltipManager.Instance.CurrentTooltip.SetTooltipText(tooltipText);
-
         TooltipManager.Instance.CurrentTooltip.ResizeTooltip();
-
         TooltipManager.Instance.ShowTooltip();
     }
 

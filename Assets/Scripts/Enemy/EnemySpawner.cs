@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private EnemyAI enemyPrefab;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform enemyContainer;
     [SerializeField] private float spawnIntervalMin = 3f;
     [SerializeField] private float spawnIntervalMax = 8f;
     [SerializeField] private Transform playerTransform;
@@ -29,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
             if (gameController.IsGameActive()) 
             {
                 Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-                EnemyAI newEnemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+                EnemyAI newEnemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity, enemyContainer);
                 newEnemy.Target = playerTransform;
                 newEnemy.gameObject.SetActive(true);
             }

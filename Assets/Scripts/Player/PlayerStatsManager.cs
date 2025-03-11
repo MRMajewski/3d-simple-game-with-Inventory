@@ -46,8 +46,4 @@ public class PlayerStatsManager : MonoBehaviour
         totalLuck = EquipmentStatsManager.Instance.TotalLuck;
     }
 
-    internal void TakeDamage(int damage)
-    {
-      //  throw new NotImplementedException();
-    }
 }

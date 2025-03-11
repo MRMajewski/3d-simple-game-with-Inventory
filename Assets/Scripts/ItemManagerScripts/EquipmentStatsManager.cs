@@ -39,8 +39,7 @@ public class EquipmentStatsManager : MonoBehaviour
             Instance = this;
         }
         else
-        {
-    
+        { 
             Destroy(gameObject);
         }
     }
@@ -61,7 +60,7 @@ public class EquipmentStatsManager : MonoBehaviour
         totalMovementSpeed = 0f;
         totalLuck = 0f;
 
-        foreach (EquipmentSlotUI slot in InventoryUI.Instance.GetEquipmentSlots())
+        foreach (EquipmentSlotUI slot in InventoryUI.Instance.EquipmentSlots)
         {
             if (!slot.IsEmpty)
             {

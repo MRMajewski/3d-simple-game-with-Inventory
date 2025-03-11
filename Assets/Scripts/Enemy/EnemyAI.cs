@@ -10,14 +10,12 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private float normalSpeed = 3.5f;
     [SerializeField] private float chaseSpeed = 5.5f;
-    [SerializeField] private int damage = 10;
 
     [SerializeField] private Transform target;
     public Transform Target { get => target; set => target = value; }
 
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private List<Animator> allEnemyAnimators;
-    [SerializeField] private Animator enemyAnimator; 
 
     private bool isAttacking = false; 
 
@@ -111,10 +109,7 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(1.0f); 
 
         PlayerStatsManager playerStats = target.GetComponent<PlayerStatsManager>();
-        if (playerStats != null)
-        {
-            playerStats.TakeDamage(damage);
-        }
+  
         Destroy(gameObject); 
     }
 

@@ -5,14 +5,19 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public static GameController Instance;
+    [Header("Panels references")]
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject hudPanel;
+
+    [Header("Buttons references")]
     [SerializeField] private Button playButton;
     [SerializeField] private Button exitButton;
 
     private bool isGamePaused = false;
     private bool isGameStarted = false;
 
+    [Space]
     [SerializeField]
     private PlayerController playerController;
 
@@ -34,6 +39,7 @@ public class GameController : MonoBehaviour
 
         inventoryPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
+        hudPanel.SetActive(false);
     }
 
     private void Update()
@@ -56,6 +62,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            hudPanel.SetActive(true);
             mainMenuPanel.SetActive(false);
             isGameStarted = true;
         }
@@ -82,14 +89,16 @@ public class GameController : MonoBehaviour
     {
         isGamePaused = true;
         Time.timeScale = 0f;
-        inventoryPanel.SetActive(true);      
+        inventoryPanel.SetActive(true);
+        hudPanel.SetActive(false);
     }
 
     private void ResumeGame()
     {
         isGamePaused = false;
         Time.timeScale = 1f;
-        inventoryPanel.SetActive(false);      
+        inventoryPanel.SetActive(false);
+        hudPanel.SetActive(true);
         playerController.UpdatePlayerStats(); 
         playerController.StopPlayerMovementAnim();
     }

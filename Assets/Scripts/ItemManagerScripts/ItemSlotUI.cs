@@ -14,7 +14,7 @@ public class ItemSlotUI : ItemBaseSlotUI
 
     private void TryEquipItem()
     {
-        foreach (var slot in InventoryUI.Instance.GetEquipmentSlots()) 
+        foreach (var slot in InventoryUI.Instance.EquipmentSlots) 
         {
             if (slot.Category == ItemData.Category)
             {

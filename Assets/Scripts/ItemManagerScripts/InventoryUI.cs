@@ -13,12 +13,13 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private Camera previewCamera;
 
     private List<ItemSlotUI> itemUIList = new List<ItemSlotUI>();
+    private Sequence loadingSequence;
 
     [SerializeField] private GameObject inventoryPanel; 
 
     [SerializeField] private CanvasGroup onLoadTextCanvasGroup;
 
-    private Sequence loadingSequence; 
+    public List<EquipmentSlotUI> EquipmentSlots { get => equipmentSlots; }
 
     private void Awake()
     {
@@ -98,6 +99,4 @@ public class InventoryUI : MonoBehaviour
             loadingSequence = null;
         }
     }
-
-    public List<EquipmentSlotUI> GetEquipmentSlots() => equipmentSlots;
 }
